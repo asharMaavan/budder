@@ -17,3 +17,10 @@ modules:
             port: 9515
             browser: chrome
             window_size: 1663x1112
+env:
+    url1:
+        modules:
+            config:
+                WebDriver:
+                    url: 'https://staging-app.budder.io/800buds/site/login'
+                    browser: 'chrome'
