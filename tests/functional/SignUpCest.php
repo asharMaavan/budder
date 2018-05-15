@@ -29,8 +29,8 @@ class SignUpCest
 
     private function removePopUps(FunctionalTester $I)
     {
-        $I->amOnPage('///signup');
-        $I->maximizeWindow();
+        $I->amOnPage('/signup');
+        dd($I->maximizeWindow());
         if($this->isLoaderVisible($I)){
             $this->isLoaderInvisible($I);
         }
