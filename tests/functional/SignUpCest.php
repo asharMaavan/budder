@@ -61,7 +61,7 @@ class SignUpCest
 
     private function isRegistrationButtonVisible(FunctionalTester $I)
     {
-        return $I->visible('#reg-btn');
+        return $I->visible('.reg-btn');
     }
 
     private function goToSignUp(FunctionalTester $I)
