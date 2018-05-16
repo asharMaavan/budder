@@ -24,6 +24,57 @@ class FunctionalTester extends \Codeception\Actor
     * Define custom actions here
     */
 
+    public function login()
+    {
+        if($this->isLoginButtonVisible()){
+            $this->fillCredentials();
+            if($this->signInConfirm()){
+                return true;
+            }else{
+                $this->assertFalse(true);
+            }
+        }else{
+            $this->assertFalse(true);
+        }
+    }
+
+    public function signInConfirm()
+    {
+        if($this->isMenuPageVisible()){
+            return true;
+        }else{
+            //re confirm
+            if($this->isHomePageVisible()){
+                return true;
+            }else{
+                $this->assertFalse(true);
+            }
+        }
+    }
+
+    public function isMenuPageVisible()
+    {
+        return $this->visible('#menuBtn');
+    }
+
+    public function isHomePageVisible()
+    {
+        return $this->visible('#prodSearch');
+    }
+
+    public function fillCredentials()
+    {
+        $this->fillField(['name' => 'loginEmail'], "habib.maava2n@gmail.com");
+        $this->fillField(['name' => 'loginPassword'], "test123");
+        //Click to Login
+        $this->customClick('.chek-login-btn');
+    }
+
+    public function isLoginButtonVisible()
+    {
+        return $this->visible('#loginEmail');
+    }
+
     ///////////////////////////////////////         Waits For Loading or Visiblity Invisibilty        /////////////////////////////////////////////////
 
     /*
