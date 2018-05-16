@@ -24,8 +24,41 @@ class FunctionalTester extends \Codeception\Actor
     * Define custom actions here
     */
 
+   public function removePopUps()
+    {
+        $this->amOnPage('/signup');
+        $this->maximizeWindow();
+        if($this->isLoaderVisible()){
+            $this->isLoaderInvisible();
+        }
+        $this->isAboveAgePopUpVisible();
+    }
+
+    private function isAboveAgePopUpVisible()
+    {
+        if($this->isAgeButtonVisible()){
+            $this->click('.age-pbtn1');
+        }
+    }
+
+    private function isAgeButtonVisible()
+    {
+        return $this->visible('.age-pbtn1');
+    }
+
+    private function isLoaderVisible(){
+        //#loading
+        return $this->visible('#loading');
+    }
+
+    private function isLoaderInvisible(){
+        //#loading
+        return $this->visible('#loading');
+    }
+
     public function login()
     {
+    
         if($this->isLoginButtonVisible()){
             $this->fillCredentials();
             if($this->signInConfirm()){

@@ -20,18 +20,28 @@ class OnlineOrderCest
      * Check out products
      *
      */
-    public function onlineOrderTest(FunctionalTester $I)
-    {
-        $I->login();
-        $this->selectProductCategory($I);
-        $this->selectDispensary($I);
-        $this->selectProduct($I);
-        $this->buyProductConfirmAndVerification($I);
-    }
+    // public function onlineOrderTest(FunctionalTester $I)
+    // {
+    //     $I->removePopUps();
+    //     $I->login();
+    //     $this->selectProductCategory($I);
+    //     $this->selectDispensary($I);
+    //     $this->selectProduct($I);
+    //     $this->buyProductConfirmAndVerification($I);
+    // }
 
     //checks and select product category
-    public function selectProductCategory(FunctionalTester $I)
+    private function selectProductCategory(FunctionalTester $I)
     {
+        
+        if($I->visible('.deliver-content.catweb')){
+            $I->scrollTo('.deliver-content.catweb', 20, 50);
+        }elseif($I->visible('.product-group')){
+            $I->scrollTo('.product-group', 20, 50);
+        }else{
+            $I->assertFalse(true);
+        }
+        
         //select random type of category
         if ($this->isProductCategoriesType1Visible($I)) {
             return $this->randomCat($I,'.deliver-content.catweb');
@@ -55,10 +65,11 @@ class OnlineOrderCest
     private function randomCat(FunctionalTester $I, $selector)
     {
         //select random type of category
-        $categoryLength = $I->getInputLength($selector.'div a');
+        $categoryLength = $I->getInputLength($selector.' div a');        
         if ($categoryLength > 0) {
             $categoryNo = rand(0, count($categoryLength)-1);
-            $I->click($selector.'div:nth-child('.$categoryNo.') a');
+            //
+            $I->click($selector.' div:nth-child('.($categoryNo+1).') a');
         } else {
             $I->assertFalse(true);
         }
@@ -70,7 +81,7 @@ class OnlineOrderCest
         return $I->visible('.popup-wrapper div a:nth-child(2)');
     }
 
-    public function selectDispensary(FunctionalTester $I)
+    private function selectDispensary(FunctionalTester $I)
     {
         if($this->isCategorySelectedConfirmation($I)){
             $I->click('.popup-wrapper div a:nth-child(2)');
@@ -89,7 +100,7 @@ class OnlineOrderCest
         return $I->invisible('.popup-wrapper div a:nth-child(2)');
     }
 
-    public function selectProduct(FunctionalTester $I)
+    private function selectProduct(FunctionalTester $I)
     {
         if($this->isProductPageVisible($I)){
             $productLength = $I->getInputLength('.pl-box-overlay.product-detail');
@@ -123,7 +134,7 @@ class OnlineOrderCest
         }
     }
 
-    public function buyProductConfirmAndVerification(FunctionalTester $I)
+    private function buyProductConfirmAndVerification(FunctionalTester $I)
     {
         if($this->isCartItemsVisible($I)){
             $I->click('.cart-text a');
