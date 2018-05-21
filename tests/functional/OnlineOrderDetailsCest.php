@@ -21,12 +21,11 @@ class OnlineOrderDetailsCest
      * Check and Verifies details
      *
      */
-    public function onlineOrderFromMenuTest(FunctionalTester $I)
+    public function onlineOrderDetailTest(FunctionalTester $I)
     {
         $I->removePopUps();
         $I->login();
         $this->selectOrderDetails($I);
-        $this->checkAndVerifyOrderDetails($I);
     }
 
     /**
@@ -41,18 +40,18 @@ class OnlineOrderDetailsCest
         if ($this->selectOrderOption($I)) {
             //Get product details
             $orderNumber = $I->getInputText('.ohw-tr div:nth-child(2) .giveorder1:eq(0)');
-            $cost = (float) $I->extractAdditionalFromSelector('.ohw-tr div:nth-child(3) .giveorder1:eq(0)');
+            $cost = (float)$I->extractAdditionalFromSelector('.ohw-tr div:nth-child(3) .giveorder1:eq(0)');
             $status = $I->getInputText('.ohw-tr div:nth-child(4) .giveorder1:eq(0)');
-            if($this->goToDetailAndReviewPage($I)){
-                $detailedPageOrderNo =  $I->getInputText('.row div:nth-child(4) .soh-th-last span');
-                $detailedPageCost = (float) $I->extractAdditionalFromSelector('.amountright.blackbig');
+            if ($this->goToDetailAndReviewPage($I)) {
+                $detailedPageOrderNo = $I->getInputText('.row div:nth-child(4) .soh-th-last span');
+                $detailedPageCost = (float)$I->extractAdditionalFromSelector('.amountright.blackbig');
                 $detailedPageStatus = $I->getInputText('.row div:nth-child(1) .soh-th span');
-                if(($orderNumber == $detailedPageOrderNo) && ($cost == $detailedPageCost) && ($status == $detailedPageStatus)){
+                if (($orderNumber == $detailedPageOrderNo) && ($cost == $detailedPageCost) && ($status == $detailedPageStatus)) {
                     return true;
-                }else{
+                } else {
                     $I->assertFalse(true);
                 }
-            }else{
+            } else {
                 $I->assertFalse(true);
             }
         } else {
@@ -62,10 +61,10 @@ class OnlineOrderDetailsCest
 
     private function goToDetailAndReviewPage(FunctionalTester $I)
     {
-        if($this->isDetailReviewButtonVisible($I)){
+        if ($this->isDetailReviewButtonVisible($I)) {
             $I->customClick('.ohw-tr div:nth-child(5) a:eq(0)');
             return $this->isDetailedOrderPageVisible($I);
-        }else{
+        } else {
             return false;
         }
 
@@ -103,23 +102,5 @@ class OnlineOrderDetailsCest
     {
         return $I->visible('.user-ddl:nth-child(2) img');
     }
-
-    /**
-     *
-     * If finds a product in stock
-     * selects quantity
-     * checkouts through checkout Notification
-     *
-     */
-    private function checkAndVerifyOrderDetails(FunctionalTester $I)
-    {
-
-    }
-
-    private function waitForProductsToLoad(FunctionalTester $I)
-    {
-
-    }
-
 
 }

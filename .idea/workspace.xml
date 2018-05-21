@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54184f29-e9db-4566-9dd4-99cfd405478c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/functional/OnlineOrderDetailsCest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/functional/OnlineOrderFromMenuCest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/functional/OnlineContactCest.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/_support/FunctionalTester.php" afterPath="$PROJECT_DIR$/tests/_support/FunctionalTester.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/functional/OnlineOrderCest.php" afterPath="$PROJECT_DIR$/tests/functional/OnlineOrderCest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/functional/OnlineOrderDetailsCest.php" afterPath="$PROJECT_DIR$/tests/functional/OnlineOrderDetailsCest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/functional/OnlineOrderFromMenuCest.php" afterPath="$PROJECT_DIR$/tests/functional/OnlineOrderFromMenuCest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/functional/SignUpCest.php" afterPath="$PROJECT_DIR$/tests/functional/SignUpCest.php" />
     </list>
     <ignored path="Budder.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,11 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="FunctionalTester.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FunctionalTester.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/_support/FunctionalTester.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="239" column="30" selection-start-line="239" selection-start-column="28" selection-end-line="239" selection-end-column="30" />
+            <state relative-caret-position="126">
+              <caret line="100" column="5" selection-start-line="100" selection-start-column="5" selection-end-line="100" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -42,7 +44,7 @@
         <entry file="file://$PROJECT_DIR$/tests/functional/OnlineOrderCest.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="121">
-              <caret line="141" column="18" selection-start-line="141" selection-start-column="16" selection-end-line="141" selection-end-column="18" />
+              <caret line="141" column="34" selection-start-line="141" selection-start-column="34" selection-end-line="141" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -51,28 +53,48 @@
       <file leaf-file-name="OnlineOrderFromMenuCest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/functional/OnlineOrderFromMenuCest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="665">
-              <caret line="71" column="19" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="19" />
+            <state relative-caret-position="153">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OnlineOrderDetailsCest.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OnlineOrderDetailsCest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/functional/OnlineOrderDetailsCest.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="57" column="16" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="16" />
+              <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FunctionalTester.php" pinned="false" current-in-tab="false">
-        <entry file="file://F:/Tests/tests/_support/FunctionalTester.php">
+      <file leaf-file-name="LoginCest.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/functional/LoginCest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="1425" column="0" selection-start-line="1416" selection-start-column="4" selection-end-line="1425" selection-end-column="0" />
+            <state relative-caret-position="119">
+              <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SignUpCest.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/functional/SignUpCest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="118">
+              <caret line="108" column="33" selection-start-line="108" selection-start-column="33" selection-end-line="108" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OnlineContactCest.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/functional/OnlineContactCest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -99,14 +121,15 @@
         <option value="$PROJECT_DIR$/tests/_support/_generated/FunctionalTesterActions.php" />
         <option value="$PROJECT_DIR$/codeception.yml" />
         <option value="$PROJECT_DIR$/tests/functional/LoginCest.php" />
-        <option value="$PROJECT_DIR$/tests/functional/SignUpCest.php" />
         <option value="$PROJECT_DIR$/tests/functional.suite.yml" />
         <option value="$PROJECT_DIR$/tests/_support/Helper/Functional.php" />
-        <option value="$PROJECT_DIR$/tests/functional/OnlineOrderCest.php" />
         <option value="$PROJECT_DIR$/tests/functional/OrderDetailsCest.php" />
-        <option value="$PROJECT_DIR$/tests/functional/OnlineOrderFromMenuCest.php" />
-        <option value="$PROJECT_DIR$/tests/_support/FunctionalTester.php" />
+        <option value="$PROJECT_DIR$/tests/functional/OnlineContactCest.php" />
+        <option value="$PROJECT_DIR$/tests/functional/SignUpCest.php" />
         <option value="$PROJECT_DIR$/tests/functional/OnlineOrderDetailsCest.php" />
+        <option value="$PROJECT_DIR$/tests/functional/OnlineOrderFromMenuCest.php" />
+        <option value="$PROJECT_DIR$/tests/functional/OnlineOrderCest.php" />
+        <option value="$PROJECT_DIR$/tests/_support/FunctionalTester.php" />
       </list>
     </option>
   </component>
@@ -311,7 +334,7 @@
       <workItem from="1526447099480" duration="13781000" />
       <workItem from="1526532396842" duration="5480000" />
       <workItem from="1526619404746" duration="12013000" />
-      <workItem from="1526877074792" duration="16790000" />
+      <workItem from="1526877074792" duration="19017000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/asharMaavan/budder&#10;&#10;# Conflicts:&#10;#&#9;composer.lock&#10;">
       <created>1526471821006</created>
@@ -327,11 +350,18 @@
       <option name="project" value="LOCAL" />
       <updated>1526883144601</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Adding new test online order details and online order from menu">
+      <created>1526903314025</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1526903314025</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68849000" />
+    <option name="totallyTimeSpent" value="71076000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1370" height="744" extended-state="0" />
@@ -343,9 +373,9 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26841244" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26841244" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -373,7 +403,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Merge branch 'master' of https://github.com/asharMaavan/budder&#10;&#10;# Conflicts:&#10;#&#9;composer.lock&#10;" />
     <MESSAGE value="Adding new test online order" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding new test online order" />
+    <MESSAGE value="Adding new test online order details and online order from menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding new test online order details and online order from menu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -382,14 +413,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tests/functional.suite.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/_support/Helper/Functional.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1088">
@@ -594,22 +617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/functional/LoginCest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/functional/SignUpCest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1802">
-          <caret line="106" column="33" selection-start-line="106" selection-start-column="33" selection-end-line="106" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../v4.0-development/tests/_support/FunctionalTester.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4182">
@@ -738,30 +745,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/_support/FunctionalTester.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="239" column="30" selection-start-line="239" selection-start-column="28" selection-end-line="239" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/functional/OnlineOrderCest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="141" column="18" selection-start-line="141" selection-start-column="16" selection-end-line="141" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/functional/OnlineOrderFromMenuCest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="71" column="19" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://F:/Tests/tests/functional/criteria/CriteriaCest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -770,10 +753,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tests/functional/OnlineContactCest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/functional/LoginCest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tests/functional/OnlineOrderDetailsCest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="57" column="16" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="16" />
+          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/functional/SignUpCest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="108" column="33" selection-start-line="108" selection-start-column="33" selection-end-line="108" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/functional/OnlineOrderFromMenuCest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/functional/OnlineOrderCest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="141" column="34" selection-start-line="141" selection-start-column="34" selection-end-line="141" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/_support/FunctionalTester.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="100" column="5" selection-start-line="100" selection-start-column="5" selection-end-line="100" selection-end-column="5" />
           <folding />
         </state>
       </provider>

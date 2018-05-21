@@ -32,29 +32,29 @@ class OnlineOrderFromMenuCest
     //checks and select category and product
     private function selectCategoryFromMenu(FunctionalTester $I)
     {
-        if($this->isMenuPageVisible($I)){
+        if ($this->isMenuPageVisible($I)) {
             $I->click('#menuBtn');
-            if($this->isCategoryListVisible($I)){
-                $catLength = $I->getInputLength('#menudropdown ul a');                
-                for($cat = 1; $cat <= $catLength; $cat ++){
-                    $I->click('#menudropdown ul a:nth-child('.$cat.')'); 
-                    if($I->isCategorySelectedConfirmation()){
+            if ($this->isCategoryListVisible($I)) {
+                $catLength = $I->getInputLength('#menudropdown ul a');
+                for ($cat = 1; $cat <= $catLength; $cat++) {
+                    $I->click('#menudropdown ul a:nth-child(' . $cat . ')');
+                    if ($I->isCategorySelectedConfirmation()) {
                         $I->selectDispensary();
                     }
-                    if($this->waitForProductsToLoad($I)){
+                    if ($this->waitForProductsToLoad($I)) {
                         $productLength = $I->getInputLength('[ng-if="productsCount > 0"] .pl-box-img.product-detail');
-                        if($productLength > 0){
+                        if ($productLength > 0) {
                             $productNo = rand(1, $productLength);
                             //select Product
-                            $I->customClick('.pl-box .pl-box-overlay.product-detail:eq('.$productNo.')');
+                            $I->customClick('.pl-box .pl-box-overlay.product-detail:eq(' . $productNo . ')');
                             break;
                         }
                     }
                 }
-            }else{
+            } else {
                 $I->assertFalse(true);
             }
-        }else{
+        } else {
             $I->assertFalse(true);
         }
     }
@@ -68,20 +68,20 @@ class OnlineOrderFromMenuCest
      */
     private function buyShownProductIfInStock(FunctionalTester $I)
     {
-        if($I->isProductInStockVisible()){
+        if ($I->isProductInStockVisible()) {
             $I->addProductToShop();
-            if($I->isGoToCheckoutVisible()){
+            if ($I->isGoToCheckoutVisible()) {
                 $I->click('//*[contains(text(),\'Go to checkout\')]');
-                if($I->isBuyProductPageVisible()){                    
+                if ($I->isBuyProductPageVisible()) {
                     $I->click('.row .checkout-btn');
                     //Confirm product checked out
                     $I->productCheckedOutConfirmation();
-                }else{
+                } else {
                     //quantity does not match
                     $I->assertFalse(true);
-                }                               
-            }else{
-                $I->assertFalse(true);   
+                }
+            } else {
+                $I->assertFalse(true);
             }
         }
         return true;
@@ -89,12 +89,12 @@ class OnlineOrderFromMenuCest
 
     private function waitForProductsToLoad(FunctionalTester $I)
     {
-        if($this->isLoaderVisible($I)){
-            if($this->isLoaderInvisible($I)){
+        if ($this->isLoaderVisible($I)) {
+            if ($this->isLoaderInvisible($I)) {
                 return $this->isProductVisible($I);
             }
             return false;
-        }else{
+        } else {
             return $this->isProductVisible($I);
         }
     }
@@ -113,7 +113,7 @@ class OnlineOrderFromMenuCest
     {
         return $I->visible('[ng-if="productsCount > 0"]');
     }
-    
+
     private function isMenuPageVisible(FunctionalTester $I)
     {
         return $I->visible('#menuBtn');

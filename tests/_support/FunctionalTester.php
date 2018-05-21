@@ -12,7 +12,7 @@
  * @method void am($role)
  * @method void lookForwardTo($achieveValue)
  * @method void comment($description)
- * @method \Codeception\Lib\Friend haveFriend($name, $actorClass = NULL)
+ * @method \Codeception\Lib\Friend haveFriend($name, $actorClass = null)
  *
  * @SuppressWarnings(PHPMD)
  */
@@ -28,7 +28,7 @@ class FunctionalTester extends \Codeception\Actor
     {
         $this->amOnPage('/signup');
         $this->maximizeWindow();
-        if($this->isLoaderVisible()){
+        if ($this->isLoaderVisible()) {
             $this->isLoaderInvisible();
         }
         $this->isAboveAgePopUpVisible();
@@ -36,7 +36,7 @@ class FunctionalTester extends \Codeception\Actor
 
     private function isAboveAgePopUpVisible()
     {
-        if($this->isAgeButtonVisible()){
+        if ($this->isAgeButtonVisible()) {
             $this->click('.age-pbtn1');
         }
     }
@@ -46,40 +46,42 @@ class FunctionalTester extends \Codeception\Actor
         return $this->visible('.age-pbtn1');
     }
 
-    public function isLoaderVisible(){
+    public function isLoaderVisible()
+    {
         //#loading
-        return $this->visible('#loading',10);
+        return $this->visible('#loading', 10);
     }
 
-    public function isLoaderInvisible(){
+    public function isLoaderInvisible()
+    {
         //#loading
-        return $this->invisible('#loading',10);
+        return $this->invisible('#loading', 10);
     }
 
     public function login()
     {
 
-        if($this->isLoginButtonVisible()){
+        if ($this->isLoginButtonVisible()) {
             $this->fillCredentials();
-            if($this->signInConfirm()){
+            if ($this->signInConfirm()) {
                 return true;
-            }else{
+            } else {
                 $this->assertFalse(true);
             }
-        }else{
+        } else {
             $this->assertFalse(true);
         }
     }
 
     public function signInConfirm()
     {
-        if($this->isMenuPageVisible()){
+        if ($this->isMenuPageVisible()) {
             return true;
-        }else{
+        } else {
             //re confirm
-            if($this->isHomePageVisible()){
+            if ($this->isHomePageVisible()) {
                 return true;
-            }else{
+            } else {
                 $this->assertFalse(true);
             }
         }
@@ -139,6 +141,7 @@ class FunctionalTester extends \Codeception\Actor
         }
         return true;
     }
+
     /*
      * Wait For Element Invisible
      * required time (Default:30s)
@@ -155,17 +158,17 @@ class FunctionalTester extends \Codeception\Actor
 
     public function selectDispensary()
     {
-        if($this->isCategorySelectedConfirmation()){
+        if ($this->isCategorySelectedConfirmation()) {
             $this->customClick('.popup-wrapper div .ws-btn3:nth-child(1)');
-            if($this->isDispensaryPageInvisible()){
+            if ($this->isDispensaryPageInvisible()) {
                 return true;
-            }else{
+            } else {
                 $this->assertFalse(true);
             }
-        }else{
-            if($this->amOnProductsPage()){
+        } else {
+            if ($this->amOnProductsPage()) {
                 return true;
-            }else{
+            } else {
                 $this->assertFalse(true);
             }
         }
@@ -175,7 +178,7 @@ class FunctionalTester extends \Codeception\Actor
     {
         return $this->visible('.popup-wrapper div .ws-btn3:nth-child(1)');
     }
-    
+
     public function amOnProductsPage()
     {
         return $this->visible('.pl-box .pl-box-overlay.product-detail:nth-child(1)');
@@ -194,17 +197,17 @@ class FunctionalTester extends \Codeception\Actor
     public function addProductToShop()
     {
         //select product to cart
-        if($this->isProductItemCartVisible()){
+        if ($this->isProductItemCartVisible()) {
             $this->customClick('tr:nth-child(1) .cartAddBtn');
             return $this->isCartItemsVisible();
-        }else{
+        } else {
             return false;
         }
     }
 
     public function isCartItemsVisible()
     {
-        return $this->visible('.cart-text a',60);
+        return $this->visible('.cart-text a', 60);
     }
 
     public function isProductItemCartVisible()
@@ -224,9 +227,9 @@ class FunctionalTester extends \Codeception\Actor
 
     public function productCheckedOutConfirmation()
     {
-        if($this->isThankYouPageVisible()){
+        if ($this->isThankYouPageVisible()) {
             return true;
-        }else{
+        } else {
             //Failure
             $this->assertFalse(true);
         }

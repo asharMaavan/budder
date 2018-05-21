@@ -31,7 +31,7 @@ class SignUpCest
     {
         $I->amOnPage('/signup');
         $I->maximizeWindow();
-        if($this->isLoaderVisible($I)){
+        if ($this->isLoaderVisible($I)) {
             $this->isLoaderInvisible($I);
         }
         $this->isAboveAgePopUpVisible($I);
@@ -39,7 +39,7 @@ class SignUpCest
 
     private function isAboveAgePopUpVisible(FunctionalTester $I)
     {
-        if($this->isAgeButtonVisible($I)){
+        if ($this->isAgeButtonVisible($I)) {
             $I->click('.age-pbtn1');
         }
     }
@@ -49,12 +49,14 @@ class SignUpCest
         return $I->visible('.age-pbtn1');
     }
 
-    private function isLoaderVisible(FunctionalTester $I){
+    private function isLoaderVisible(FunctionalTester $I)
+    {
         //#loading
         return $I->visible('#loading');
     }
 
-    private function isLoaderInvisible(FunctionalTester $I){
+    private function isLoaderInvisible(FunctionalTester $I)
+    {
         //#loading
         return $I->visible('#loading');
     }
@@ -67,14 +69,14 @@ class SignUpCest
     private function goToSignUp(FunctionalTester $I)
     {
 
-        if($this->isRegistrationButtonVisible($I)){
+        if ($this->isRegistrationButtonVisible($I)) {
             $I->click('.reg-btn');
-            if($this->isUserFirstNameVisible($I)){
+            if ($this->isUserFirstNameVisible($I)) {
                 return true;
-            }else{
+            } else {
                 $I->assertFalse(true);
             }
-        }else{
+        } else {
             $I->assertFalse(true);
         }
     }
@@ -96,11 +98,11 @@ class SignUpCest
 
     private function fillUpForm(FunctionalTester $I)
     {
-        if($this->isUserFirstNameVisible($I)){
+        if ($this->isUserFirstNameVisible($I)) {
             $I->fillField(['name' => 'firstName'], "First Name");
             $I->fillField(['name' => 'lastName'], "Last Name");
             //generate random email username
-            $I->fillField(['name' => 'email'], $this->emailUsername($I).'@gmail.com');
+            $I->fillField(['name' => 'email'], $this->emailUsername($I) . '@gmail.com');
             $I->fillField(['name' => 'phone'], "3435659876");
 
             //Select Date Of Birth
@@ -123,43 +125,45 @@ class SignUpCest
             //terms and conditions
             $I->customClick('#squaredtwo');
             //create account
-            if($this->createAccount($I)){
+            if ($this->createAccount($I)) {
                 $I->assertTrue($this->isMenuButtonVisible($I));
-            }else{
+            } else {
                 $I->assertFalse(true);
             }
 
-        }else{
+        } else {
             $I->assertFalse(true);
         }
     }
 
-    private function isMenuButtonVisible(FunctionalTester $I){
+    private function isMenuButtonVisible(FunctionalTester $I)
+    {
         return $I->visible('#menuBtn');
     }
 
     private function createAccount(FunctionalTester $I)
     {
         //create account click
-        if($this->isCreateButtonVisible($I)){
+        if ($this->isCreateButtonVisible($I)) {
             $I->click('Create Account');
             return $this->isCreateButtonInvisible($I);
-        }else{
+        } else {
             return false;
         }
     }
 
     private function isCalendarVisible(FunctionalTester $I)
     {
-        return $I->visible('.ui-datepicker-prev.ui-corner-all',45);
+        return $I->visible('.ui-datepicker-prev.ui-corner-all', 45);
     }
 
-    private function emailUsername(FunctionalTester $I){
+    private function emailUsername(FunctionalTester $I)
+    {
 
         $string = "";
         $chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        for($i = 0; $i <= 10; $i++){
-            $string.=substr($chars,rand(0,strlen($chars)),1);
+        for ($i = 0; $i <= 10; $i++) {
+            $string .= substr($chars, rand(0, strlen($chars)), 1);
         }
         return $string;
     }
@@ -171,10 +175,10 @@ class SignUpCest
         $I->wait(2);
         $I->executeJS("$('#Dob').trigger('change').trigger('focus');");
 
-        if($this->isCalendarVisible($I)){
+        if ($this->isCalendarVisible($I)) {
             //click previous month
             $I->click('.ui-datepicker-prev.ui-corner-all');
-        }else{
+        } else {
             $I->assertFalse(true);
         }
         $I->selectOption('.ui-datepicker-title select:nth-child(2)', '1990');
@@ -189,10 +193,10 @@ class SignUpCest
         $I->wait(2);
         $I->executeJS("$('[name=\"dlExpiry\"]').trigger('change').trigger('focus');");
 
-        if($this->isCalendarVisible($I)){
+        if ($this->isCalendarVisible($I)) {
             //click previous month
             $I->click('.ui-datepicker-next.ui-corner-all');
-        }else{
+        } else {
             $I->assertFalse(true);
         }
 
