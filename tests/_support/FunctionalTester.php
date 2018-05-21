@@ -15,16 +15,16 @@
  * @method \Codeception\Lib\Friend haveFriend($name, $actorClass = NULL)
  *
  * @SuppressWarnings(PHPMD)
-*/
+ */
 class FunctionalTester extends \Codeception\Actor
 {
     use _generated\FunctionalTesterActions;
 
-   /**
-    * Define custom actions here
-    */
+    /**
+     * Define custom actions here
+     */
 
-   public function removePopUps()
+    public function removePopUps()
     {
         $this->amOnPage('/signup');
         $this->maximizeWindow();
@@ -46,19 +46,19 @@ class FunctionalTester extends \Codeception\Actor
         return $this->visible('.age-pbtn1');
     }
 
-    private function isLoaderVisible(){
+    public function isLoaderVisible(){
         //#loading
         return $this->visible('#loading');
     }
 
-    private function isLoaderInvisible(){
+    public function isLoaderInvisible(){
         //#loading
         return $this->visible('#loading');
     }
 
     public function login()
     {
-    
+
         if($this->isLoginButtonVisible()){
             $this->fillCredentials();
             if($this->signInConfirm()){
@@ -97,8 +97,8 @@ class FunctionalTester extends \Codeception\Actor
 
     public function fillCredentials()
     {
-        $this->fillField(['name' => 'loginEmail'], "habib.maava2n@gmail.com");
-        $this->fillField(['name' => 'loginPassword'], "test123");
+        $this->fillField(['name' => 'loginEmail'], "qa.budder@gmail.com");
+        $this->fillField(['name' => 'loginPassword'], "maavan321");
         //Click to Login
         $this->customClick('.chek-login-btn');
     }

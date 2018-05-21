@@ -12,7 +12,7 @@ modules:
         - Asserts
     config:
         WebDriver:
-            url: https://dev-skins.budder.io
+            url: https://staging-800.budder.io/
             host: localhost
             port: 9515
             browser: chrome
