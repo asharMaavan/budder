@@ -48,12 +48,12 @@ class FunctionalTester extends \Codeception\Actor
 
     public function isLoaderVisible(){
         //#loading
-        return $this->visible('#loading');
+        return $this->visible('#loading',10);
     }
 
     public function isLoaderInvisible(){
         //#loading
-        return $this->visible('#loading');
+        return $this->invisible('#loading',10);
     }
 
     public function login()
@@ -152,4 +152,100 @@ class FunctionalTester extends \Codeception\Actor
             return false;
         }
     }
+
+    public function selectDispensary()
+    {
+        if($this->isCategorySelectedConfirmation()){
+            $this->customClick('.popup-wrapper div .ws-btn3:nth-child(1)');
+            if($this->isDispensaryPageInvisible()){
+                return true;
+            }else{
+                $this->assertFalse(true);
+            }
+        }else{
+            if($this->amOnProductsPage()){
+                return true;
+            }else{
+                $this->assertFalse(true);
+            }
+        }
+    }
+
+    public function isCategorySelectedConfirmation()
+    {
+        return $this->visible('.popup-wrapper div .ws-btn3:nth-child(1)');
+    }
+    
+    public function amOnProductsPage()
+    {
+        return $this->visible('.pl-box .pl-box-overlay.product-detail:nth-child(1)');
+    }
+
+    public function isDispensaryPageInvisible()
+    {
+        return $this->invisible('.popup-wrapper div .ws-btn3:nth-child(1)');
+    }
+
+    public function isProductInStockVisible()
+    {
+        return $this->visible('//*[contains(text(),\'In Stock\')]');
+    }
+
+    public function addProductToShop()
+    {
+        //select product to cart
+        if($this->isProductItemCartVisible()){
+            $this->customClick('tr:nth-child(1) .cartAddBtn');
+            return $this->isCartItemsVisible();
+        }else{
+            return false;
+        }
+    }
+
+    public function isCartItemsVisible()
+    {
+        return $this->visible('.cart-text a',60);
+    }
+
+    public function isProductItemCartVisible()
+    {
+        return $this->visible('tr:nth-child(1) .cartAddBtn');
+    }
+
+    public function isGoToCheckoutVisible()
+    {
+        return $this->visible('//*[contains(text(),\'Go to checkout\')]');
+    }
+
+    public function isBuyProductPageVisible()
+    {
+        return $this->visible('[name="quantity"]');
+    }
+
+    public function productCheckedOutConfirmation()
+    {
+        if($this->isThankYouPageVisible()){
+            return true;
+        }else{
+            //Failure
+            $this->assertFalse(true);
+        }
+    }
+
+    public function isThankYouPageVisible()
+    {
+        return $this->visible('//p[contains(text(),\'Thank You\')]');
+    }
+
+    public function extractAdditionalFromSelector($selector)
+    {
+        $name = str_replace(
+            '$',
+            "",
+            $this->getInputText('' . $selector . '')
+        );
+        return $name;
+    }
+
+
 }

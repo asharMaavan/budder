@@ -26,7 +26,7 @@ class OnlineOrderCest
         $I->removePopUps();
         $I->login();
         $this->selectProductCategory($I);
-        $this->selectDispensary($I);
+        $I->selectDispensary();
         $this->selectProduct($I);
         $this->buyProductConfirmAndVerification($I);
     }
@@ -76,48 +76,7 @@ class OnlineOrderCest
         } else {
             $I->assertFalse(true);
         }
-        return $this->isCategorySelectedConfirmation($I);
-    }
-
-    private function isCategorySelectedConfirmation(FunctionalTester $I)
-    {
-        return $I->visible('.popup-wrapper div .ws-btn3:nth-child(1)');
-    }
-
-    private function selectDispensary(FunctionalTester $I)
-    {
-        if($this->isCategorySelectedConfirmation($I)){
-            $I->customClick('.popup-wrapper div .ws-btn3:nth-child(1)');
-            if($this->isDispensaryPageInvisible($I)){
-                return true;
-            }else{
-                $I->assertFalse(true);
-            }
-        }else{
-            if($this->amOnProductsPage($I)){
-                return true;
-            }else{
-                //click Home button
-                $I->customClick('.nav-btn:eq(2)');
-                if($this->isHomePageVisible($I)){
-                    $this->selectProductCategory($I);
-                    $this->selectDispensary($I);
-                    return false;
-                }else{
-                    $I->assertFalse(true);
-                }
-            }
-        }
-    }
-
-    private function amOnProductsPage(FunctionalTester $I)
-    {
-        return $I->visible('.pl-box .pl-box-overlay.product-detail:nth-child(1)');
-    }
-
-    private function isDispensaryPageInvisible(FunctionalTester $I)
-    {
-        return $I->invisible('.popup-wrapper div .ws-btn3:nth-child(1)');
+        return $I->isCategorySelectedConfirmation();
     }
 
     private function scrollToSelectProduct(FunctionalTester $I)
@@ -155,8 +114,8 @@ class OnlineOrderCest
     private function productSelectedConfirmation(FunctionalTester $I)
     {
         //This means product is in stock
-        if($this->isProductInStockVisible($I)){
-            return $this->isCartItemsVisible($I);
+        if($I->isProductInStockVisible()){
+            return $I->isCartItemsVisible();
         }else{
             //select a new product
             $this->redirectToSelectNewProduct($I);
@@ -170,42 +129,25 @@ class OnlineOrderCest
         $I->customClick('.nav-btn:eq(2)');
         if($this->isHomePageVisible($I)){
             $this->selectProductCategory($I);
-            $this->selectDispensary($I);
+            $I->selectDispensary();
             $this->selectProduct($I);
             return false;
         }else{
             $I->assertFalse(true);
         }
     }
-
-    private function addProductToShop(FunctionalTester $I)
-    {
-        //select product to cart
-        if($this->isProductItemCartVisible($I)){
-            $I->customClick('tr:nth-child(1) .cartAddBtn');
-            return $this->isCartItemsVisible($I);
-        }else{
-            return false;
-        }
-    }
-
-    private function isProductItemCartVisible(FunctionalTester $I)
-    {
-        return $I->visible('tr:nth-child(1) .cartAddBtn');
-    }
-
+    
     private function buyProductConfirmAndVerification(FunctionalTester $I)
     {
-        if($this->addProductToShop($I) || $this->isGoToCheckoutVisible($I)){
+        if($I->addProductToShop() || $I->isGoToCheckoutVisible()){
             if($this->isGoToCheckoutInVisible($I)){
                 $I->click('.cart-text a');
-                if($this->isBuyProductPageVisible($I)){
+                if($I->isBuyProductPageVisible()){
                     $quantityValue = $I->getValueFromInput('[name="quantity"]');
                     if($quantityValue == "1"){
                         $I->click('.row .checkout-btn');
-
                         //Confirm product checked out
-                        $this->productCheckedOutConfirmation($I);
+                        $I->productCheckedOutConfirmation();
                     }else{
                         //quantity does not match
                         $I->assertFalse(true);
@@ -221,45 +163,11 @@ class OnlineOrderCest
         }
     }
 
-    private function productCheckedOutConfirmation(FunctionalTester $I)
-    {
-        if($this->isThankYouPageVisible($I)){
-            return true;
-        }else{
-            //Failure
-            $I->assertFalse(true);
-        }
-    }
-
-    private function isThankYouPageVisible(FunctionalTester $I)
-    {
-        return $I->visible('//p[contains(text(),\'Thank You\')]');
-    }
-
-    private function isBuyProductPageVisible(FunctionalTester $I)
-    {
-        return $I->visible('[name="quantity"]');
-    }
-
-    private function isGoToCheckoutVisible(FunctionalTester $I)
-    {
-        return $I->visible('//*[contains(text(),\'Go to checkout\')]');
-    }
-
     private function isGoToCheckoutInVisible(FunctionalTester $I)
     {
         return $I->invisible('//*[contains(text(),\'Go to checkout\')]');
     }
-
-    private function isCartItemsVisible(FunctionalTester $I)
-    {
-        return $I->visible('.cart-text a',60);
-    }
-
-    private function isProductInStockVisible(FunctionalTester $I)
-    {
-        return $I->visible('//*[contains(text(),\'In Stock\')]');
-    }
+        
     private function isProductPageVisible(FunctionalTester $I)
     {
         return $I->visible('.search-field');
