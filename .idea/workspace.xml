@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54184f29-e9db-4566-9dd4-99cfd405478c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/functional/OnlineFrontEnd/ContactCest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/functional/OnlineFrontEnd/OrderCest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/functional/OnlineFrontEnd/OrderDetailsCest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/functional/OnlineFrontEnd/OrderFromMenuCest.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/functional/LoginCest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/functional/OnlineContactCest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/functional/OnlineOrderCest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/functional/OnlineOrderDetailsCest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/functional/OnlineOrderFromMenuCest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/functional/SignUpCest.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/_support/FunctionalTester.php" afterPath="$PROJECT_DIR$/tests/_support/FunctionalTester.php" />
     </list>
     <ignored path="Budder.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -313,7 +302,7 @@
       <workItem from="1526532396842" duration="5480000" />
       <workItem from="1526619404746" duration="12013000" />
       <workItem from="1526877074792" duration="19066000" />
-      <workItem from="1526964105144" duration="2842000" />
+      <workItem from="1526964105144" duration="3496000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/asharMaavan/budder&#10;&#10;# Conflicts:&#10;#&#9;composer.lock&#10;">
       <created>1526471821006</created>
@@ -343,11 +332,18 @@
       <option name="project" value="LOCAL" />
       <updated>1526906095824</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="division of front and back end, small fixes">
+      <created>1526969509701</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1526969509701</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73967000" />
+    <option name="totallyTimeSpent" value="74621000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1370" height="744" extended-state="0" />
@@ -359,7 +355,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26841244" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -391,7 +387,8 @@
     <MESSAGE value="Adding new test online order" />
     <MESSAGE value="Adding new test online order details and online order from menu" />
     <MESSAGE value="adding contact us test and code structure refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding contact us test and code structure refactoring" />
+    <MESSAGE value="division of front and back end, small fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="division of front and back end, small fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
