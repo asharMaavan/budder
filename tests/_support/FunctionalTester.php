@@ -34,7 +34,7 @@ class FunctionalTester extends \Codeception\Actor
         $this->isAboveAgePopUpVisible();
     }
 
-    private function isAboveAgePopUpVisible()
+    public function isAboveAgePopUpVisible()
     {
         if ($this->isAgeButtonVisible()) {
             $this->click('.age-pbtn1');
@@ -229,10 +229,17 @@ class FunctionalTester extends \Codeception\Actor
     {
         if ($this->isThankYouPageVisible()) {
             return true;
+        }elseif($this->productCostZeroFound()){
+            $this->assertFalse($this->productCostZeroFound());
         } else {
             //Failure
             $this->assertFalse(true);
         }
+    }
+
+    public function productCostZeroFound()
+    {
+        return $this->visible('//*[contains(text(),\'Order Price should be greater than 1\')]');
     }
 
     public function isThankYouPageVisible()
