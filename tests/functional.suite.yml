@@ -18,7 +18,7 @@ modules:
             browser: chrome
             window_size: 1663x1112
 env:
-    url1:
+    backend:
         modules:
             config:
                 WebDriver:
