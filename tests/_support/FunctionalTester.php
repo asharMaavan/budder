@@ -110,52 +110,6 @@ class FunctionalTester extends \Codeception\Actor
         return $this->visible('#loginEmail');
     }
 
-    ///////////////////////////////////////         Waits For Loading or Visiblity Invisibilty        /////////////////////////////////////////////////
-
-    /*
-     * Wait For Element Visible
-     * required time (Default:30s)
-     */
-    public function visible($selector, $time = 30)
-    {
-        try {
-            $this->waitForElementVisible($selector, $time);
-            return true;
-        } catch (Exception $e) {
-            return false;
-        }
-    }
-
-    /*
-     *
-     * For using Jquery
-     * Wait for scope to change
-     * Sometimes takes 2 to 3 minutes to change
-     *
-     */
-    public function waitForScopeToBeChanged($selector, $time = 60)
-    {
-        $waitForScope = $this->visible($selector, $time);
-        if (!$waitForScope) {
-            $this->waitForScopeToBeChanged($selector, $time);
-        }
-        return true;
-    }
-
-    /*
-     * Wait For Element Invisible
-     * required time (Default:30s)
-     */
-    public function invisible($selector, $time = 30)
-    {
-        try {
-            $this->waitForElementNotVisible($selector, $time);
-            return true;
-        } catch (Exception $e) {
-            return false;
-        }
-    }
-
     public function selectDispensary()
     {
         if ($this->isCategorySelectedConfirmation()) {
@@ -166,12 +120,17 @@ class FunctionalTester extends \Codeception\Actor
                 $this->assertFalse(true);
             }
         } else {
-            if ($this->amOnProductsPage()) {
+            if ($this->amOnProductsPage() || $this->isDispensarySelectedVisible()) {
                 return true;
             } else {
                 $this->assertFalse(true);
             }
         }
+    }
+
+    public function isDispensarySelectedVisible()
+    {
+        return $this->visible('[ng-model="selectedDispensary"]');
     }
 
     public function isCategorySelectedConfirmation()
@@ -247,6 +206,52 @@ class FunctionalTester extends \Codeception\Actor
         return $this->visible('//p[contains(text(),\'Thank You\')]');
     }
 
+    ///////////////////////////////////////         Waits For Loading or Visiblity Invisibilty        /////////////////////////////////////////////////
+
+    /*
+     * Wait For Element Visible
+     * required time (Default:30s)
+     */
+    public function visible($selector, $time = 30)
+    {
+        try {
+            $this->waitForElementVisible($selector, $time);
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    /*
+     *
+     * For using Jquery
+     * Wait for scope to change
+     * Sometimes takes 2 to 3 minutes to change
+     *
+     */
+    public function waitForScopeToBeChanged($selector, $time = 60)
+    {
+        $waitForScope = $this->visible($selector, $time);
+        if (!$waitForScope) {
+            $this->waitForScopeToBeChanged($selector, $time);
+        }
+        return true;
+    }
+
+    /*
+     * Wait For Element Invisible
+     * required time (Default:30s)
+     */
+    public function invisible($selector, $time = 30)
+    {
+        try {
+            $this->waitForElementNotVisible($selector, $time);
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
     public function extractAdditionalFromSelector($selector)
     {
         $name = str_replace(
@@ -257,5 +262,54 @@ class FunctionalTester extends \Codeception\Actor
         return $name;
     }
 
+    /////////////////////////////////////////////////////// BackEnd Re useable Methods ////////////////////////////////
 
+    /////////////////////BE in each method denotes back End ////////////////////////////////
+
+    /**
+     *
+     * LogIn and Confirm Login
+     *
+     */
+    public function backendLogin()
+    {
+        $this->amOnPage('/login');
+        $this->maximizeWindow();
+        if($this->isUsernameVisibleBE()){
+            if($this->addCredentialsBE()){
+                return $this->isDashboardVisibleBE();
+            }else{
+                dd($this->addCredentialsBE());
+                $this->assertFalse(true);
+            }
+        }else{
+            $this->assertFalse(true);
+        }
+    }
+
+    public function isUsernameVisibleBE()
+    {
+        return $this->visible('#loginform-email');
+    }
+
+    public function addCredentialsBE()
+    {
+
+        $this->fillField(['name' => 'LoginForm[email]'], "qa.maavan@gmail.com");
+        $this->fillField(['name' => 'LoginForm[password]'], "maavan321");
+        //Select Dispensary
+        $this->selectOption('.field-loginform-depot select', 'HWD');
+        $this->customClick('.login-btn');
+        return $this->isLoginButtonInvisibleBE();
+    }
+
+    public function isLoginButtonInvisibleBE()
+    {
+        return $this->invisible('.login-btn');
+    }
+
+    public function isDashboardVisibleBE()
+    {
+        return $this->visible('#home-tab');
+    }
 }

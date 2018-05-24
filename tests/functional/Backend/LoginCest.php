@@ -1,7 +1,21 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Admin
- * Date: 5/22/2018
- * Time: 11:27 AM
- */
+
+
+class BackendLoginCest
+{
+    public function _before(FunctionalTester $I)
+    {
+    }
+
+    public function _after(FunctionalTester $I)
+    {
+    }
+
+    // Login
+    public function backendLoginTest(FunctionalTester $I)
+    {
+        $I->backendLogin();
+    }
+
+    
+}

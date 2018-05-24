@@ -22,5 +22,5 @@ env:
         modules:
             config:
                 WebDriver:
-                    url: 'https://staging-app.budder.io/800buds/site/login'
+                    url: 'https://staging-app.budder.io/800buds/site/'
                     browser: 'chrome'
